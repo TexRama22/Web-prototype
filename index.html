@@ -1,0 +1,335 @@
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>RamaHub — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ramanantsoa - developer, IT support, and designer. Football, gaming, tech and creative work.">
+  <link rel="shortcut icon" href="assets/logo.svg.png">
+  <!-- Google Fonts optional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/logo.svg.png" alt="RamaHub logo" height="48">
+      </div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projets</a>
+        <a href="#skills">Compétences</a>
+        <a href="#timeline">Parcours</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+      <button id="burger" class="burger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Salut, je suis <span>Ramanantsoa</span></h1>
+          <p class="text-xl">Junior full-stack dev • IT support • Creative designer. Football, gaming, tech & rap français.</p>
+          <div class="hero-ctas">
+            <button id="hireBtn" class="btn primary">Engager</button>
+            <button id="projectsBtn" class="btn outline">Voir projets</button>
+          </div>
+          <div class="icons-row">
+            <button class="icon" data-target="#football">⚽<span>Football</span></button>
+            <button class="icon" data-target="#gaming">🎮<span>Gaming</span></button>
+            <button class="icon" data-target="#tech">💻<span>Tech</span></button>
+            <button class="icon" data-target="#rap">🎤<span>Rap</span></button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="card">
+            <h3>Stage @ CREF</h3>
+            <p>Administration Windows Server • Support technique • Conception d'affiches : roll-up, bannière, prospectus</p>
+            <a class="mini" href="#timeline">Voir le parcours →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2>Projets</h2>
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="it">IT</button>
+        </div>
+        <div class="grid projects-grid">
+          <article class="proj-card" data-category="web">
+            <div class="proj-image">
+              <img src="assets/project1.jpg" alt="Project 1">
+              <div class="proj-overlay">
+                <p>Site vitrine responsive pour club de football</p>
+              </div>
+            </div>
+            <div class="proj-info">
+              <h3>Site vitrine - Club de foot</h3>
+              <p>HTML/CSS/JS • Responsive • Design</p>
+              <div class="proj-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <div class="proj-actions">
+                <a href="#" class="btn small">Voir démo</a>
+                <a href="#" class="btn ghost">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj-card" data-category="design">
+            <div class="proj-image">
+              <img src="assets/project1.jpg" alt="Project 2">
+              <div class="proj-overlay">
+                <p>Création graphique: affiches, roll-up, bannières</p>
+              </div>
+            </div>
+            <div class="proj-info">
+              <h3>Pack Graphique - CREF</h3>
+              <p>Photoshop • Illustrator • Branding</p>
+              <div class="proj-tags">
+                <span class="tag">Design</span>
+                <span class="tag">Print</span>
+                <span class="tag">Branding</span>
+              </div>
+              <div class="proj-actions">
+                <a href="#" class="btn small">Portfolio</a>
+                <a href="#" class="btn ghost">Fichiers</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj-card" data-category="it">
+            <div class="proj-image">
+              <img src="assets/project1.jpg" alt="Project 3">
+              <div class="proj-overlay">
+                <p>Configuration et administration réseau</p>
+              </div>
+            </div>
+            <div class="proj-info">
+              <h3>Infrastructure Réseau</h3>
+              <p>Windows Server • Réseaux • Support technique</p>
+              <div class="proj-tags">
+                <span class="tag">Windows Server</span>
+                <span class="tag">Réseau</span>
+                <span class="tag">Support</span>
+              </div>
+              <div class="proj-actions">
+                <a href="#" class="btn small">Détails</a>
+                <a href="#" class="btn ghost">Doc</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj-card" data-category="web">
+            <div class="proj-image">
+              <img src="assets/project1.jpg" alt="Project 4">
+              <div class="proj-overlay">
+                <p>Application web interactive avec animations</p>
+              </div>
+            </div>
+            <div class="proj-info">
+              <h3>Dashboard Interactif</h3>
+              <p>React • API REST • Data viz</p>
+              <div class="proj-tags">
+                <span class="tag">React</span>
+                <span class="tag">API</span>
+                <span class="tag">Frontend</span>
+              </div>
+              <div class="proj-actions">
+                <a href="#" class="btn small">Voir démo</a>
+                <a href="#" class="btn ghost">Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills">
+      <div class="container">
+        <h2>Compétences</h2>
+        <div class="skills-intro">
+          <p>Expertise en développement, IT support/réseaux et design créatif</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill">
+            <h4>Web Development</h4>
+            <div class="skill-level">90%</div>
+            <div class="bar"><div data-level="90"></div></div>
+            <div class="skill-details">HTML • CSS • JavaScript • React</div>
+          </div>
+          <div class="skill">
+            <h4>IT support/ Réseaux</h4>
+            <div class="skill-level">80%</div>
+            <div class="bar"><div data-level="80"></div></div>
+            <div class="skill-details">Windows Server • Réseaux • Support</div>
+          </div>
+          <div class="skill">
+            <h4>Graphisme</h4>
+            <div class="skill-level">85%</div>
+            <div class="bar"><div data-level="85"></div></div>
+            <div class="skill-details">Photoshop • Illustrator • UI/UX</div>
+          </div>
+          <div class="skill">
+            <h4>Vidéo</h4>
+            <div class="skill-level">70%</div>
+            <div class="bar"><div data-level="70"></div></div>
+            <div class="skill-details">Montage • After Effect • Streaming</div>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label">+ Projets complétés</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" data-target="10+">0</div>
+            <div class="stat-label">+ Clients satisfaits</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" data-target="4">0</div>
+            <div class="stat-label">+ Années d'expérience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Engagement</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="section timeline">
+      <div class="container">
+        <h2>Parcours</h2>
+        <div class="timeline-wrapper">
+          <div class="timeline">
+            <div class="event" data-year="2016">
+              <time>2016</time>
+              <p class="event-title">Premiers jeux & passion foot</p>
+              <div class="event-details" style="display: none;">
+                <p>-Découverte de la passion pour l'informatique et les technologies<br>
+                -Premier contact avec le football en club 
+                </p>
+              </div>
+            </div>
+            <div class="event" data-year="2018">
+              <time>2018</time>
+              <p class="event-title">Etudes / Lycée</p>
+              <div class="event-details" style="display: none;">
+                <p>-Formation scolaire entrer au lycée à l'ESCA Antanimena<br>
+                -Formation avec focus sur les matières littéraires, en particulier la Philosophie
+                </p>
+              </div>
+            </div>
+
+             <div class="event" data-year="2022">
+              <time>2022</time>
+              <p class="event-title">Université</p>
+              <div class="event-details" style="display: none;">
+                <p>-Entrer à l'Université publique de télé-enseignement de Madagascar "CNTEMAD"<br>
+                  -Parcours informatique: base de données/réseaux système<br>
+                </p>
+              </div>
+            </div>
+
+            <div class="event highlight" data-year="2023">
+              <time>2023</time>
+              <p class="event-title">Stage @CREF</p>
+              <div class="event-details" style="display: block;">
+                <p><strong>SysAdmin & Création graphique</strong></p>
+                <ul>
+                  <li>Administration Windows Server</li>
+                  <li>Support technique utilisateurs</li>
+                  <li>Design graphique (affiches, bannières)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="event" data-year="2025">
+              <time>2025</time>
+              <p class="event-title">Dev Junior & Freelance</p>
+              <div class="event-details" style="display: none;">
+                <p>Actuellement en développement de projets web et services de freelance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contactForm">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Ton nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <textarea name="message" placeholder="Ton message" required></textarea>
+          <div class="form-row">
+            <button type="submit" class="btn primary">Envoyer</button>
+            <button type="button" id="openModal" class="btn outline">Envoyer via modal</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <strong>RamaHub</strong> — Dev • IT • Design — <a href="https://www.upwork.com" target="_blank">Upwork</a> | <a href="https://www.freelancer.com" target="_blank">Freelancer</a></p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-body">
+      <button id="closeModal" class="modal-close">✕</button>
+      <h3>Envoyer une demande</h3>
+      <form id="modalForm">
+        <input type="text" name="mname" placeholder="Ton nom" required>
+        <input type="email" name="memail" placeholder="Email" required>
+        <textarea name="mmsg" placeholder="Message"></textarea>
+        <button class="btn primary" type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // 1. Trouver l'événement à mettre en lumière (le plus récent)
+        const highlightEvent = document.querySelector('.event.highlight');
+        
+        // 2. Trouver le conteneur défilant
+        const timelineWrapper = document.querySelector('.timeline-wrapper');
+        
+        if (highlightEvent && timelineWrapper) {
+            // Calculer la position horizontale nécessaire
+            // .offsetLeft donne la position du bord gauche de l'élément (l'événement)
+            const scrollPosition = highlightEvent.offsetLeft;
+            
+            // Appliquer le défilement au conteneur.
+            // Le 'smooth' fonctionne si vous avez ajouté 'scroll-behavior: smooth;' au CSS.
+            timelineWrapper.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth' 
+            });
+        }
+    });
+</script>
+  <script src="main.js" defer></script>
+</body>
+</html>
