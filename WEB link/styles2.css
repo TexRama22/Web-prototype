@@ -1,0 +1,70 @@
+
+        .nav {
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 24px; /* increased space between buttons */
+            z-index: 1000;
+        }
+        .nav button {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:160px;      /* fixed, equal width */
+            height:48px;      /* fixed, equal height */
+            padding:0 12px;   /* keep small horizontal padding inside fixed size */
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:15px;
+            border-radius:10px;
+            cursor:pointer;
+            transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+            font-weight:700;
+            background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
+            border:1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px) saturate(120%);
+            -webkit-backdrop-filter: blur(8px) saturate(120%);
+            box-shadow: 0 6px 18px rgba(2,6,12,0.45);
+            white-space:nowrap; /* prevent wrapping */
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        .nav button:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+            border-color: rgba(255,255,255,0.18);
+        }
+        .nav button.active {
+            color: #fff;
+            background: linear-gradient(90deg, rgba(43,107,255,0.16), rgba(0,212,255,0.10));
+            border-color: rgba(43,107,255,0.28);
+            box-shadow: 0 10px 30px rgba(11,52,120,0.28), inset 0 1px 0 rgba(255,255,255,0.04);
+        }
+ 
+ body { 
+            margin: 0; 
+            background-color: #806060; /* Fond sombre neutre */
+            overflow: hidden; 
+            font-family: 'Segoe UI', sans-serif;
+        }
+        canvas { display: block; }
+        
+        #ui-overlay {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            pointer-events: none; /* Laisse la souris passer à travers pour la 3D */
+        }
+        h1 { 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+            font-size: 2rem;
+            opacity: 0.8;
+        }
+        /* Demo mode helpers: hide UI and nav smoothly when focusing on screen */
+        .demo-hide {opacity:0 !important;pointer-events:none !important;transform:translateY(-8px) !important}
+        .demo-focus-overlay {transition: opacity .45s ease}

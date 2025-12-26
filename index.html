@@ -8,9 +8,69 @@
   <!-- Google Fonts optional -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  
+  <!-- add: small styles for animated header background -->
+  <style>
+    /* header and canvas positioning */
+    .site-header { position: relative; overflow: hidden; z-index: 3; }
+    #space-bg { position: absolute; top: 0; left: 0; width: 100%; height: 140px; pointer-events: none; z-index: 1; display: block; }
+    .space-overlay {
+      position: absolute; inset: 0 0 auto 0; top: 0; left:0; height:140px; z-index:3;
+      background: linear-gradient(180deg, rgba(6, 33, 235, 0.15), rgba(12,14,30,0.45));
+      mix-blend-mode: overlay; pointer-events: none;
+    }
+
+    /* grid-bg: full-screen perspective grid + overlays */
+    .grid-bg{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      overflow:hidden;
+      transform:translateZ(0);
+      will-change:transform;
+    }
+    #grid-canvas{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+    .grid-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(10,30,60,0.06), transparent 12%),
+        radial-gradient(ellipse at 80% 30%, rgba(60,30,120,0.04), transparent 18%),
+        linear-gradient(180deg, rgba(6,8,18,0.12), rgba(0,0,0,0.55));
+      mix-blend-mode:screen;
+      pointer-events:none;
+    }
+    /* faint film grain using SVG data URI (very light) */
+    .grid-noise{
+      position:absolute; inset:0; pointer-events:none; z-index:2;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.06'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.06'/></svg>");
+      opacity:0.6; mix-blend-mode:overlay;
+    }
+
+    /* ensure main content sits above the grid (header kept higher) */
+    main, .site-footer { position:relative; z-index:1; }
+  </style>
+
+  <!-- removed: <div class="grid-bg"></div> from head -->
 </head>
 <body>
+  <!-- insert: background grid canvas + overlays (must be present for grid script) -->
+  <div class="grid-bg" aria-hidden="true">
+    <canvas id="grid-canvas"></canvas>
+    <div class="grid-overlay"></div>
+    <div class="grid-noise"></div>
+  </div>
+
   <header class="site-header">
+    <!-- add: canvas background and overlay (keeps header content above) -->
+    <canvas id="space-bg" aria-hidden="true"></canvas>
+    <div class="space-overlay" aria-hidden="true"></div>
+
     <div class="container header-inner">
       <div class="logo">
         <img src="assets/logo.svg.png" alt="RamaHub logo" height="48">
@@ -31,10 +91,10 @@
     <section id="home" class="hero">
       <div class="container hero-inner">
         <div class="hero-left">
-          <h1>Salut, je suis <span>Ramanantsoa</span></h1>
-          <p class="text-xl">Junior full-stack dev • IT support • Creative designer. Football, gaming, tech & rap français.</p>
+          <h1>Salut, je suis <br><span>Ramanantsoa Hilari Tendritia</span></h1>
+          <p class="text-xl">Junior full-stack dev • IT support • Creative designer • Footballer • Gamer</p>
           <div class="hero-ctas">
-            <button id="hireBtn" class="btn primary">Engager</button>
+            <button id="hireBtn" class="btn primary">Contacter</button>
             <button id="projectsBtn" class="btn outline">Voir projets</button>
           </div>
           <div class="icons-row">
@@ -47,8 +107,14 @@
 
         <div class="hero-right">
           <div class="card">
-            <h3>Stage @ CREF</h3>
-            <p>Administration Windows Server • Support technique • Conception d'affiches : roll-up, bannière, prospectus</p>
+            <h3>WHOIAM...</h3>
+            <p>Depuis enfant,je suis passionné par l’informatique et j’évolue depuis 2022 dans le domaine des systèmes et réseaux.
+J’aime comprendre comment les technologies fonctionnent et construire des solutions stables et utiles.
+Dans mon quotidien, je gère des environnements Windows Server et accompagne les utilisateurs dans leurs besoins techniques.
+Mon esprit curieux m’a poussé à explorer aussi la création graphique et le design publicitaire.
+J’ai réalisé des supports visuels pour des structures comme la CREF, avec une attention particulière aux détails.
+Ce mélange technique–créatif m’aide à aborder les projets avec flexibilité et sens pratique.
+Mon objectif est de continuer à apprendre, relever des défis et apporter une vraie valeur dans mes missions.</p>
             <a class="mini" href="#timeline">Voir le parcours →</a>
           </div>
         </div>
@@ -68,13 +134,13 @@
         <div class="grid projects-grid">
           <article class="proj-card" data-category="web">
             <div class="proj-image">
-              <img src="assets/project1.jpg" alt="Project 1">
+              <img src="LOGO/Gaming.png" alt="Project 1">
               <div class="proj-overlay">
-                <p>Site vitrine responsive pour club de football</p>
+                <p>Site vitrine responsive pour gaming</p>
               </div>
             </div>
             <div class="proj-info">
-              <h3>Site vitrine - Club de foot</h3>
+              <h3>Site vitrine - Gaming</h3>
               <p>HTML/CSS/JS • Responsive • Design</p>
               <div class="proj-tags">
                 <span class="tag">HTML</span>
@@ -82,7 +148,7 @@
                 <span class="tag">JavaScript</span>
               </div>
               <div class="proj-actions">
-                <a href="#" class="btn small">Voir démo</a>
+                <a href="WEB link/GamingHub.html" class="btn small">Voir démo</a>
                 <a href="#" class="btn ghost">Code</a>
               </div>
             </div>
@@ -90,7 +156,7 @@
 
           <article class="proj-card" data-category="design">
             <div class="proj-image">
-              <img src="assets/project1.jpg" alt="Project 2">
+              <img src="LOGO/Design.png" alt="Project 2">
               <div class="proj-overlay">
                 <p>Création graphique: affiches, roll-up, bannières</p>
               </div>
@@ -112,17 +178,16 @@
 
           <article class="proj-card" data-category="it">
             <div class="proj-image">
-              <img src="assets/project1.jpg" alt="Project 3">
+              <img src="LOGO/Network.png" alt="Project 3">
               <div class="proj-overlay">
                 <p>Configuration et administration réseau</p>
               </div>
             </div>
             <div class="proj-info">
               <h3>Infrastructure Réseau</h3>
-              <p>Windows Server • Réseaux • Support technique</p>
+              <p>Administration Réseaux • Support technique</p>
               <div class="proj-tags">
-                <span class="tag">Windows Server</span>
-                <span class="tag">Réseau</span>
+                <span class="tag">Administration Réseau</span>
                 <span class="tag">Support</span>
               </div>
               <div class="proj-actions">
@@ -134,7 +199,7 @@
 
           <article class="proj-card" data-category="web">
             <div class="proj-image">
-              <img src="assets/project1.jpg" alt="Project 4">
+              <img src="LOGO/Dashboard.png" alt="Project 4">
               <div class="proj-overlay">
                 <p>Application web interactive avec animations</p>
               </div>
@@ -175,7 +240,7 @@
             <h4>IT support/ Réseaux</h4>
             <div class="skill-level">80%</div>
             <div class="bar"><div data-level="80"></div></div>
-            <div class="skill-details">Windows Server • Réseaux • Support</div>
+            <div class="skill-details">Administration Réseaux • Support</div>
           </div>
           <div class="skill">
             <h4>Graphisme</h4>
@@ -329,7 +394,140 @@
             });
         }
     });
-</script>
+  </script>
+
+  <!-- lightweight starfield animation for the header canvas -->
+  <script>
+    (function(){
+      const canvas = document.getElementById('space-bg');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = 0, h = 0, stars = [];
+      const COUNT = 120;
+
+      function rand(min,max){ return Math.random()*(max-min)+min; }
+
+      function resize(){
+        // match visible header height; use clientHeight for responsive behavior
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight || 140;
+        w = canvas.width; h = canvas.height;
+        stars = [];
+        for(let i=0;i<COUNT;i++){
+          stars.push({
+            x: rand(0,w),
+            y: rand(0,h),
+            vx: rand(-0.15,0.15),
+            vy: rand(-0.05,0.05),
+            r: rand(0.3,1.6),
+            twinkle: rand(0.01,0.015)
+          });
+        }
+      }
+
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        // subtle nebula glow via radial gradient
+        const g = ctx.createLinearGradient(0,0, w, h);
+        g.addColorStop(0, 'rgba(50,60,120,0.03)');
+        g.addColorStop(1, 'rgba(10,12,30,0.06)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0,0,w,h);
+
+        for(const s of stars){
+          s.x += s.vx;
+          s.y += s.vy;
+          if(s.x < -10) s.x = w + 10;
+          if(s.x > w + 10) s.x = -10;
+          if(s.y < -10) s.y = h + 10;
+          if(s.y > h + 10) s.y = -10;
+
+          const tw = 0.6 + 0.4 * Math.sin(performance.now() * s.twinkle);
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255,255,255,${tw})`;
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      // initial run after DOM paint
+      requestAnimationFrame(() => { resize(); draw(); });
+    })();
+  </script>
+
+  <script>
+    (function(){
+      const canvas = document.getElementById('grid-canvas');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w=0,h=0,offset=0;
+
+      function resize(){
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        w = canvas.width; h = canvas.height;
+      }
+
+      function drawGrid(){
+        ctx.clearRect(0,0,w,h);
+        // subtle background gradient
+        const bg = ctx.createLinearGradient(0,0,0,h);
+        bg.addColorStop(0,'rgba(6,12,30,0.0)');
+        bg.addColorStop(1,'rgba(0,0,0,0.35)');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0,0,w,h);
+
+        const horizon = h * 0.36;
+        const lines = 70;
+        // moving offset for parallax
+        offset += 0.6;
+
+        // horizontal perspective lines
+        for(let i=0;i<lines;i++){
+          const t = i / lines;
+          const y = horizon + Math.pow(t,1.8) * (h - horizon);
+          const alpha = 0.12 * (1 - t) + 0.02;
+          ctx.strokeStyle = `rgba(0,200,255,${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          const spacing = 180 * (1 - t) + 20;
+          const xOffset = (offset * (1 - t)) % spacing;
+          for(let x = -w; x < w * 2; x += spacing){
+            ctx.moveTo(x + xOffset, y);
+            ctx.lineTo(x + xOffset + spacing*0.65, y);
+          }
+          ctx.stroke();
+        }
+
+        // vertical converging lines toward vanishing point
+        ctx.lineWidth = 1;
+        for(let i=-30;i<=30;i++){
+          const px = w/2 + i*40 + Math.sin((i+offset*0.02))*6;
+          ctx.beginPath();
+          ctx.moveTo(px, h);
+          ctx.lineTo(w/2 + i*6, horizon);
+          ctx.strokeStyle = `rgba(0,220,255,0.04)`;
+          ctx.stroke();
+        }
+
+        // soft glow near horizon
+        const glow = ctx.createRadialGradient(w/2, horizon, 10, w/2, horizon, h*0.7);
+        glow.addColorStop(0,'rgba(0,160,200,0.08)');
+        glow.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0,horizon-20,w,h*0.6);
+
+        requestAnimationFrame(drawGrid);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      requestAnimationFrame(drawGrid);
+    })();
+  </script>
+
   <script src="main.js" defer></script>
 </body>
 </html>
