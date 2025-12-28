@@ -167,4 +167,21 @@ document.addEventListener('DOMContentLoaded',()=>{
   
 });
 
+//server test avec mongo// 
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+        nom: document.getElementById('nom').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    const response = await fetch('http://localhost:5000/contact', { //URL serveur
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+
+    if(response.ok) alert("Message bien reçu !");
+};
   
