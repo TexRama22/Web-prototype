@@ -72,13 +72,17 @@
   .hero{padding:60px 0;background:linear-gradient(rgba(209, 227, 236, 0.993), rgb(175, 99, 49));}
   .hero-inner{display:flex;gap:40px;align-items:flex-start}
   .hero-left{flex:1}
-  .hero-left h1{font-family:Poppins,Arial;font-size:30px;color:var(--black);margin-bottom:24px}
-  .hero-left span{font-family:Arial, Helvetica, sans-serif ;font-size: 50px; font-weight: bold;
+  .hero-left h1{font-family:Poppins,Arial;font-size:20px;color:var(--black);margin-bottom:24px}
+  .hero-left span{font-family:Algerian ;font-size: 50px; font-weight: bold; 
     color:var(--primary);
-    text-shadow: 4px 6px 4px rgba(70, 45, 45, 0.7);
-    text-decoration: underline;
+    text-shadow: 2px 6px 1px rgba(173, 15, 41, 0.7);
   }
-
+  .hero-left p1{
+    font-size: 30px;
+    font-weight: bold;
+    color:var(--primary);
+    text-shadow: 2px 4px 1px rgba(201, 7, 39, 0.7);
+  }
   .hero-left p{font-style: oblique;
     color:brown;
     max-width:560px
@@ -107,9 +111,10 @@
     align-items:center;
     gap:6px;
     }
-  .icon span{font-size:12px;
-    color:blanchedalmond;
+  .icons-row span{font-size:12px;
+    color:rgb(43, 83, 156);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: none;
     }
   
   /* Card */
